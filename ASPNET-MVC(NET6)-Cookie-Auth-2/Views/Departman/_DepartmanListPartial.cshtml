@@ -1,0 +1,27 @@
+﻿@model List<DepartmanViewModel>
+
+
+<table class="table table-hover table-sm">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Fullname</th>
+            <th>Position</th>
+            <th>Task</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+         
+        @foreach (DepartmanViewModel departman in Model)
+        {
+                <tr>
+                 <td>@departman.Username</td>
+                <td>@departman.FullName</td>
+                <td>@departman.Position</td>
+                <td>@departman.Task</td>
+                </tr>
+        }
+       
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿
+.denemeul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+    background-color: #111;
+    display: flex;
+}
+.denemedrop {
+    
+}
+.denemeli {
+    float: left;
+}
+
+    .denemeli a {
+       
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+.denemeli a:hover {
+            background-color: #b4afaf;
+        }
+.denemelog0 {
+    
+    margin-left:950px;
+}
+.denemelog1 {
+    margin-left: 950px;
+}

@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Departman";
+
+}
+<div class="row">
+
+    <div class="col">
+        <h1 class="display-4">
+            @ViewData["Title"]
+        </h1></hr>
+    </div>
+
+</div>
+
+
+<div class="dropdown ">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Departmanlar
+  </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a id="uretimlink" class="dropdown-item"  asp-action="UretimListPartial"  data-ajax="true" data-ajax-method="get" data-ajax-update="#panel" class="btn btn-primary btn-sm">Üretim</a></li>
+                                        <li><a class="dropdown-item"  asp-action="BilgiislemListPartial"  data-ajax="true" data-ajax-method="get" data-ajax-update="#panel" class="btn btn-primary btn-sm">Bilgi işlem</a></li>
+                                        <li><a class="dropdown-item"  asp-action="InsankaynaklariListPartial"   data-ajax="true" data-ajax-method="get" data-ajax-update="#panel" class="btn btn-primary btn-sm">İnsan kaynakları</a></li>
+                                    </ul>
+
+</div>
+
+
+<div class="row mb-3">
+    <div class="col">
+        <div id="panel">
+        </div>
+    </div>
+</div>
+@section Scripts{
+ <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+          $(function(){
+            uretimlink.click();
+          });
+      </script>
+}

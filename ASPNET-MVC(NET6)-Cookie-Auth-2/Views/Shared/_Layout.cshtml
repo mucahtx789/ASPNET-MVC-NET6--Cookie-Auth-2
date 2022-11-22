@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ASPNET_MVC_NET6__Cookie_Auth_2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/deneme.css" />
+    <link href="~/lib/toastrjs/toastr.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ASPNET_MVC_NET6__Cookie_Auth_2.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+
+
+        <ul class="denemeul">
+            <li class="denemeli">
+                            <a class="" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+            <li class="denemeli">
+                            <a class="" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        
+                        @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("admin"))
+                {
+                    @*<li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Administartor</a>
+
+                                </li>*@
+                    <li class="denemeli">
+                        <div class="dropdown denemedrop">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Administrator
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+
+                                <li>   <a class="dropdown-item" asp-controller="Admin" asp-action="Index">Admin</a></li>
+                                <li>  <a class="dropdown-item"  asp-controller="User" asp-action="Index">Users</a></li>
+                                <li>  <a class="dropdown-item"  asp-controller="Member" asp-action="Index">Members</a></li>
+                                <li>  <a class="dropdown-item" asp-controller="Departman" asp-action="Index">Departman</a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+
+                }
+           
+                
+                    <div class="denemelog1">
+                    <li class="denemeli">
+                        <a asp-area="" asp-controller="Account" asp-action="Profile"><i class="fa-regular fa-user me-2"></i>@User.FindFirst("Username").Value</a>
+                    </li>
+
+                    <li class="denemeli ">
+                        <a asp-area="" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-user-plus me-2"></i>Logout</a>
+                    </li>
+                     </div>   
+                        
+                        
+                     
+            }else{
+            <div class="denemelog0">
+            <li class="denemeli">
+                <a asp-area="" asp-controller="Account" asp-action="Login"><i class="fa-regular fa-user me-2"></i>Login</a>
+            </li>
+
+            <li class="denemeli ">
+                <a asp-area="" asp-controller="Account" asp-action="Register"><i class="fa-solid fa-user-plus me-2"></i>Register</a>
+            </li>
+        </div>
+            }
+        </ul>
+                
+            
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+           
+        </main>
+    </div>
+    
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - ASPNET_MVC_NET6__Cookie_Auth_2 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/toastrjs/toastr.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
